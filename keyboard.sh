@@ -1,0 +1,1 @@
+BATTLVL=$(ioreg -r -l -n AppleHSBluetoothDevice | egrep '"BatteryPercent" = |^  \|   "Bluetooth Product Name" = '| sed 's/  |   "Bluetooth Product Name" = "Magic Mouse"/  \  Mouse/' | sed 's/  |   "Bluetooth Product Name" = "Magic Keyboard with Touch ID and Numeric Keypad"/  \  Keyboard/'| sed 's/  |   |       "BatteryPercent" = / /'); echo $BATTLVL | awk '{ print $2}'
